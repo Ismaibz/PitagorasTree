@@ -125,8 +125,9 @@
   <ItemGroup>
     <ClInclude Include="Cuadrado.h" />
     <ClInclude Include="Escena.h" />
-    <ClInclude Include="Arbol.h" />
+    <ClInclude Include="Lapiz.h" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="PV2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

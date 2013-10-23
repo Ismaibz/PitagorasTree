@@ -50,12 +50,13 @@ void display(void){
   glClear( GL_COLOR_BUFFER_BIT );
 
   // Scene rendering
-  glBegin ( GL_TRIANGLES ) ;
+  glBegin ( GL_QUADS) ;
        glVertex2d( xTriangle, yTriangle );
        glVertex2d( xTriangle + triangleWidth, yTriangle );
        glVertex2d( xTriangle + triangleWidth, yTriangle + triangleHeight );
+	   glVertex2d( xTriangle , yTriangle + triangleHeight );
   glEnd () ;
-
+  
   glFlush();
   glutSwapBuffers();
 }
@@ -76,30 +77,19 @@ void resize(int newWidth, int newHeight){
   GLdouble SVARatio= SVAWidth/SVAHeight;
   
   
-  if (SVARatio >= RatioViewPort) {
-	 // Increase SVAHeight
-     /*GLdouble newHeight= SVAWidth/RatioViewPort;
-	 GLdouble yMiddle= ( yBot+yTop )/2.0;
-     yTop= yMiddle + newHeight/2.0;
-     yBot= yMiddle - newHeight/2.0;*/
-
-	  GLdouble newWidth = SVAHeight * SVARatio;
-	  GLdouble xMiddle= ( xLeft+xRight )/2.0;
-	  xRight= xMiddle + newWidth/2.0;
-      xLeft=  xMiddle - newWidth/2.0;
-
-     }
-  else {
-     //Increase SVAWidth
-     /*GLdouble newWidth= SVAHeight*RatioViewPort;
-     GLdouble xMiddle= ( xLeft+xRight )/2.0;
-	 xRight= xMiddle + newWidth/2.0;
-     xLeft=  xMiddle - newWidth/2.0;*/
-
-	  GLdouble newHeight = SVAWidth * (SVAHeight / SVAWidth);
+  if (SVARatio > RatioViewPort) 
+  {
+	  GLdouble newWidth = SVAHeight * RatioViewPort;
+	  GLdouble xMiddle= ( xLeft + xRight )/2.0;
+	  xRight= xMiddle - newWidth/2.0;
+      xLeft=  xMiddle + newWidth/2.0;
+  }
+  else 
+  {
+	  GLdouble newHeight = HEIGHT * (SVAWidth / WIDTH);
 	  GLdouble yMiddle = (yTop + yBot) / 2.0;
-	  yTop = yMiddle + newHeight/2.0;
-	  yBot = yMiddle - newHeight/2.0;
+	  yTop = yMiddle - newHeight/2.0;
+	  yBot = yMiddle + newHeight/2.0;
   }
 
   glMatrixMode(GL_PROJECTION);
@@ -158,6 +148,7 @@ int main(int argc, char *argv[]){
 
   //OpenGL basic setting
   intitGL();
+
 
 
   // Freeglut's main loop can be stopped executing (**)

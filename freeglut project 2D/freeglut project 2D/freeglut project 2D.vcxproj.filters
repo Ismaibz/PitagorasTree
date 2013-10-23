@@ -29,10 +29,13 @@
     <ClInclude Include="Escena.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Arbol.h">
+    <ClInclude Include="Cuadrado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cuadrado.h">
+    <ClInclude Include="PV2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lapiz.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
