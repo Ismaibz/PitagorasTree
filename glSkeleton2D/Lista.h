@@ -1,3 +1,9 @@
+//---------------------------------------------------------------------------
+
+#ifndef ListaH
+#define ListaH
+//---------------------------------------------------------------------------
+
 // ListaAb.h: Plantilla para lista abierta ordenada
 // C con Clase. (C) Marzo de 2002
 // Plantilla para lista abierta
@@ -208,5 +214,9 @@ void Lista<DATO>::ParaCada(void (*func)(DATO&)) {
 // tipo que la lista:
 // template <class DATO>
 // void <funcion>(DATO d);
+
+#endif
+
+
 
 #endif

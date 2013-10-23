@@ -1,37 +1,32 @@
-#include <Windows.h>
-#include <gl/GL.h>
-#include <gl/GLU.h>
+//---------------------------------------------------------------------------
 
-#include "PV2D.h"
-#include <GL/freeglut.h>
-//#include <GL/glut.h>
+#include <vcl.h>
+#pragma hdrstop
 
-#include <iostream>
-using namespace std;
-class Lapiz{
+#include "Lapiz.h"
 
-public:
-	PV2D* pos;
-	GLdouble dir;
+//---------------------------------------------------------------------------
 
-	Lapiz()
+class Lapiz
+{
+        Lapiz::Lapiz()
 	{
 		pos = new PV2D();
 		dir = 0;
 	};
 
-	Lapiz(PV2D * p, GLdouble d)
+	Lapiz::Lapiz(PV2D * p, GLdouble d)
 	{
 		pos = new PV2D(*p);
 		dir = d;
 	};
 
-	~Lapiz()
+	Lapiz::~Lapiz()
 	{
 		delete pos;
 	};
 
-	void moveTo(PV2D* p, bool draw)
+	void Lapiz::moveTo(PV2D* p, bool draw)
 	{
 		if (draw)
 		{
@@ -42,20 +37,20 @@ public:
 		}
 		delete pos;
 		pos  = new PV2D(*p);
-		// borrar p si no se borra en otro sitio		
+		// borrar p si no se borra en otro sitio
 	};
 
-	void turnTo(GLdouble a)
+	void Lapiz::turnTo(GLdouble a)
 	{
 		dir = a;
 	};
 
-	void turn(GLdouble a)
+	void Lapiz::turn(GLdouble a)
 	{
 		dir += a;
 	};
 
-	void forward(GLdouble dist, bool draw)
+	void Lapiz::forward(GLdouble dist, bool draw)
 	{
 		PV2D *p = new PV2D(pos->x + dist*cos(dir),pos->y + dist*sin(dir));
 		if (draw)
@@ -69,8 +64,6 @@ public:
 		pos  = new PV2D(*p);
 		delete p;
 	};
-
-
 };
 
- 
+#pragma package(smart_init)
