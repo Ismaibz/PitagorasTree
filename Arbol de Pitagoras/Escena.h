@@ -17,7 +17,7 @@ class Escena{
 
 		Escena (Cuadrado* primero);
 		~Escena();
-                void dibuja(TForm* form, Lapiz* lapiz, int lado);
+                void dibuja(Lapiz* lapiz, int lado);
 
 
 

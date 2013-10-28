@@ -170,13 +170,8 @@ void __fastcall TGLForm2D::FormClick(TObject *Sender)
                 PV2D *p4 = new PV2D(xAbs - (lado / 2.0), yAbs + (lado / 2.0));
                 Cuadrado* primero = new Cuadrado(p1,p2,p3,p4);
                 escena = new Escena(primero);
-                escena->dibuja(this,lapiz,lado);
-                Repaint();
+                drawScene();
           }
-          else{
-                lado = (sqrt(2))/2*lado;
-                //HACER PARA EL RESTO DE CUADRADOS
-          };
 }
 //---------------------------------------------------------------------------
 
@@ -236,10 +231,9 @@ void TGLForm2D::embaldosar(int nCol)
 
 void TGLForm2D::drawScene()
 {
-        glBegin (GL_LINES);
-        glVertex2d(100,100);
-        glVertex2d(200,200);
-        glEnd();
+        if (escena != NULL) escena->dibuja(lapiz,lado);
+        glFlush();
+        SwapBuffers(hdc);
 }
 //---------------------------------------------------------------------------
 
@@ -248,6 +242,7 @@ void TGLForm2D::desEmbaldosar()
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         gluOrtho2D(xLeft,xRight, yBot,yTop);
+        glViewport(0,0,ClientWidth,ClientHeight);
         Repaint();
 }
 //---------------------------------------------------------------------------

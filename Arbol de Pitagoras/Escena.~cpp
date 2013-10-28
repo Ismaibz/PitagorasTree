@@ -25,23 +25,27 @@ Escena::~Escena()
         delete lista;
 };
 
-void Escena::dibuja(TForm* form, Lapiz* lapiz, int lado)
+void Escena::dibuja(Lapiz* lapiz, int lado)
 {
         lista->Primero();
-        Lista<Cuadrado*>* listaAux = lista->ValorActual();
-        listaAux->Primero();
-        while (listaAux->Actual())
+        while (lista->Actual())
         {
-                Cuadrado* aux = listaAux->ValorActual();
-                lapiz->moveTo(aux->v1,false);
-                lapiz->forward((GLdouble)lado,true);
-                lapiz->turn((GLdouble)0.5);
-                lapiz->forward((GLdouble)lado,true);
-                lapiz->turn((GLdouble)0.5);
-                lapiz->forward((GLdouble)lado,true);
-                lapiz->turn((GLdouble)0.5);
-                lapiz->forward((GLdouble)lado,true);
-                listaAux->Siguiente();
+                Lista<Cuadrado*>* listaAux = lista->ValorActual();
+                listaAux->Primero();
+                while (listaAux->Actual())
+                {
+                        Cuadrado* aux = listaAux->ValorActual();
+                        lapiz->moveTo(aux->v1,false);
+                        lapiz->forward((GLdouble)lado,true);
+                        lapiz->turn((GLdouble)0.5);
+                        lapiz->forward((GLdouble)lado,true);
+                        lapiz->turn((GLdouble)0.5);
+                        lapiz->forward((GLdouble)lado,true);
+                        lapiz->turn((GLdouble)0.5);
+                        lapiz->forward((GLdouble)lado,true);
+                        listaAux->Siguiente();
+                }
+                lista->Siguiente();
         }
 };
 
