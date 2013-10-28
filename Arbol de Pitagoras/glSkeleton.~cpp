@@ -9,7 +9,8 @@ USEUNIT("Escena.cpp");
 USEUNIT("Lapiz.cpp");
 USEUNIT("Lista.cpp");
 USEUNIT("PV2D.cpp");
-USEFORM("FormPrimerCuadrado.cpp", Form1);
+USEFORM("FormPrimerCuadrado.cpp", FormLado);
+USEFORM("TFormZoom.cpp", FormZoom);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -17,7 +18,8 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         {
                  Application->Initialize();
                  Application->CreateForm(__classid(TGLForm2D), &GLForm2D);
-                 Application->CreateForm(__classid(TForm1), &Form1);
+                 Application->CreateForm(__classid(TFormLado), &FormLado);
+                 Application->CreateForm(__classid(TFormZoom), &FormZoom);
                  Application->Run();
         }
         catch (Exception &exception)

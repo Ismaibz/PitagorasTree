@@ -1,8 +1,8 @@
 object GLForm2D: TGLForm2D
-  Left = 196
-  Top = 38
-  Width = 833
-  Height = 631
+  Left = 478
+  Top = 267
+  Width = 408
+  Height = 434
   Caption = 'Formulario Principal'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,7 +12,6 @@ object GLForm2D: TGLForm2D
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
-  OnClick = FormClick
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnPaint = FormPaint
@@ -20,9 +19,8 @@ object GLForm2D: TGLForm2D
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu
-    AutoHotkeys = maManual
-    Left = 160
-    Top = 112
+    Left = 112
+    Top = 64
     object Archivo: TMenuItem
       Caption = 'Archivo'
       object Salir: TMenuItem
@@ -34,26 +32,22 @@ object GLForm2D: TGLForm2D
       Caption = 'Programa'
       object PrimerCuadrado: TMenuItem
         Caption = 'Primer Cuadrado'
-        OnClick = PrimerCuadradoClick
       end
-      object SiguienteGeneracion: TMenuItem
-        Caption = 'Siguiente Generacion'
+      object Expandir: TMenuItem
+        Caption = 'Expandir'
       end
     end
     object Zoom: TMenuItem
       Caption = 'Zoom'
-      OnClick = ZoomClick
+      object ZoomIn: TMenuItem
+        Caption = 'Zoom In'
+      end
+      object ZoomOut: TMenuItem
+        Caption = 'Zoom Out'
+      end
     end
     object Embaldosado: TMenuItem
       Caption = 'Embaldosado'
-      object Embaldosar: TMenuItem
-        Caption = 'Embaldosar'
-        OnClick = EmbaldosarClick
-      end
-      object Desembaldosar: TMenuItem
-        Caption = 'Desembaldosar'
-        OnClick = DesembaldosarClick
-      end
     end
   end
 end

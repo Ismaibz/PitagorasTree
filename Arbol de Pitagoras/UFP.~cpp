@@ -109,12 +109,11 @@ void __fastcall TGLForm2D::FormResize(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TGLForm2D::GLScene()
 {
-//glClear(GL_COLOR_BUFFER_BIT);
-
-
-
-//glFlush();
-SwapBuffers(hdc);
+        glClear(GL_COLOR_BUFFER_BIT);
+        if(baldosas) embaldosar(nCol);
+        else drawScene();
+        glFlush();
+        SwapBuffers(hdc);
 }
 
 //---------------------------------------------------------------------------
@@ -138,7 +137,6 @@ void __fastcall TGLForm2D::SalirClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-
 void __fastcall TGLForm2D::PrimerCuadradoClick(TObject *Sender)
 {
 
@@ -151,7 +149,6 @@ void __fastcall TGLForm2D::PrimerCuadradoClick(TObject *Sender)
        primerCuadrado = true;
 
 }
-
 //---------------------------------------------------------------------------
 
 void __fastcall TGLForm2D::FormClick(TObject *Sender)
@@ -173,18 +170,103 @@ void __fastcall TGLForm2D::FormClick(TObject *Sender)
                 PV2D *p4 = new PV2D(xAbs - (lado / 2.0), yAbs + (lado / 2.0));
                 Cuadrado* primero = new Cuadrado(p1,p2,p3,p4);
                 escena = new Escena(primero);
-                /*
-                glBegin(GL_QUADS);
-                glVertex2f(p1->x,p1->y);
-                glVertex2f(p2->x,p2->y);
-                glVertex2f(p3->x,p3->y);
-                glVertex2f(p4->x,p4->y);
-                glEnd();
-                Repaint();
-                */
                 escena->dibuja(this,lapiz,lado);
                 Repaint();
           }
+          else{
+                lado = (sqrt(2))/2*lado;
+                //HACER PARA EL RESTO DE CUADRADOS
+          };
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TGLForm2D::ZoomClick(TObject *Sender)
+{
+        TFormZoom* FormZoom;
+        FormZoom = new TFormZoom(NULL);
+        FormZoom->ShowModal();
+        AnsiString z = FormZoom->TextZoom->Text;
+        int zoom = atoi(z.c_str());
+        aplicarZoom((GLdouble)zoom/100);
+}
+//---------------------------------------------------------------------------
+
+void TGLForm2D::aplicarZoom(GLdouble zoom)
+{
+        int nIter = 20;
+        GLdouble fInc = (zoom-1)/(GLdouble)nIter;
+        GLfloat centroX = (xRight+xLeft)/2.0;
+        GLfloat centroY = (yTop+yBot)/2.0;
+        for (int i=0; i<=nIter; i++)
+        {
+                GLdouble fAux = 1 + fInc*i;
+                GLdouble anchoNew = (xRight-xLeft)/fAux;
+                GLdouble altoNew = (yTop-yBot)/fAux;
+
+                glMatrixMode(GL_PROJECTION);
+                glLoadIdentity();
+                gluOrtho2D(centroX-anchoNew/2.0, centroX+anchoNew/2.0, centroY-altoNew/2.0, centroY+altoNew/2.0);
+                GLScene();
+                Sleep(50);
+        }
+        xLeft = xLeft/zoom;
+        xRight = xRight/zoom;
+        yTop = yTop/zoom;
+        yBot = yBot/zoom;
+}
+//---------------------------------------------------------------------------
+
+void TGLForm2D::embaldosar(int nCol)
+{
+        GLdouble SVAratio = (xRight-xLeft) / (yTop - yBot);
+        GLdouble w = (GLdouble)ClientWidth / (GLdouble)nCol;
+        GLdouble h = w/SVAratio;
+        for(GLint c=0; c<nCol; c++)
+        {
+                GLdouble currentH = 0;
+                while((currentH + h) < ClientHeight)
+                {
+                        glViewport((GLint)(c*w), (GLint)currentH, (GLint)w, (GLint)h);
+                        drawScene();
+                        currentH += h;
+                }
+        }
+}
+//---------------------------------------------------------------------------
+
+void TGLForm2D::drawScene()
+{
+        glBegin (GL_LINES);
+        glVertex2d(100,100);
+        glVertex2d(200,200);
+        glEnd();
+}
+//---------------------------------------------------------------------------
+
+void TGLForm2D::desEmbaldosar()
+{
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        gluOrtho2D(xLeft,xRight, yBot,yTop);
+        Repaint();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TGLForm2D::EmbaldosarClick(TObject *Sender)
+{
+        TFormEmbaldosado* FormEmbaldosado;
+        FormEmbaldosado = new TFormEmbaldosado(NULL);
+        FormEmbaldosado->ShowModal();
+        AnsiString z = FormEmbaldosado->TextEmbaldosado->Text;
+        nCol = atoi(z.c_str());
+        baldosas = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TGLForm2D::DesembaldosarClick(TObject *Sender)
+{
+        baldosas = false;
+        desEmbaldosar();
 }
 //---------------------------------------------------------------------------
 

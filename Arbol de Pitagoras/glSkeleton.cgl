@@ -1,13 +1,13 @@
-Error 00121. 0x300010 (Thread 0x0BF0):
-Resource leak: The object (0x1948FA0) was never deleted
+Error 00121. 0x300010 (Thread 0x0FF4):
+Resource leak: The object (0x14E7418) was never deleted
 
-The object (0x01948FA0) [size: 16 bytes] was created with new
+The object (0x014E7418) [size: 16 bytes] was created with new
 Call Tree:
-   0x004027C0(=glSkeleton.exe:0x01:0017C0) C:\Users\Alvaro\Desktop\Arbol de Pitagoras\UFP.cpp#170
-   0x4006B958(=VCL50.BPL:0x01:06A958)
-   0x40054117(=VCL50.BPL:0x01:053117)
-   0x4006DF7B(=VCL50.BPL:0x01:06CF7B)
-   0x400511D6(=VCL50.BPL:0x01:0501D6)
-   0x772C86EF(=user32.dll:0x01:0176EF)
+   0x00401CF6(=glSkeleton.exe:0x01:000CF6) C:\Users\Alvaro\Desktop\Arbol de Pitagoras\UFP.cpp#39
+   0x40053323(=VCL50.BPL:0x01:052323)
+   0x4005301F(=VCL50.BPL:0x01:05201F)
+   0x4005ABFC(=VCL50.BPL:0x01:059BFC)
+   0x004015DD(=glSkeleton.exe:0x01:0005DD) C:\Users\Alvaro\Desktop\Arbol de Pitagoras\glSkeleton.cpp#21
+   0x3257DBEF(=CC3250MT.DLL:0x01:07CBEF)
 
 ------------------------------------------

@@ -4,13 +4,10 @@
   <MACROS>
     <VERSION value="BCB.05.03"/>
     <PROJECT value="glSkeleton.exe"/>
-    <OBJFILES value="glSkeleton.obj UFP.obj Cuadrado.obj Escena.obj Lapiz.obj Lista.obj 
-      PV2D.obj FormPrimerCuadrado.obj TFormZoom.obj"/>
+    <OBJFILES value="glSkeleton.obj UFP.obj Escena.obj Lista.obj Cuadrado.obj PV2D.obj Lapiz.obj"/>
     <RESFILES value="glSkeleton.res"/>
-    <IDLFILES value=""/>
-    <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) UFP.dfm FormPrimerCuadrado.dfm TFormZoom.dfm"/>
+    <RESDEPEN value="$(RESFILES) UFP.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="VCL50.lib"/>
@@ -28,13 +25,11 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
     <MAINSOURCE value="glSkeleton.cpp"/>
-    <INCLUDEPATH value="&quot;C:\Program Files\Borland\CBuilder5\Projects&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="&quot;C:\Program Files\Borland\CBuilder5\Projects&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I&quot;C:\Program Files\Borland\CBuilder5\Projects&quot; -I$(BCB)\include 
-      -I$(BCB)\include\vcl -boa"/>
     <CFLAG1 value="-vGc -vGt -vGd -Od -H=$(BCB)\lib\vcl50.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k 
       -y -v -vi- -c -tW -tWM"/>
     <PFLAGS value="-$YD -$W -$O- -v -JPHNE -M"/>

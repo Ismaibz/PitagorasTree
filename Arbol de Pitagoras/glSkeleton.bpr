@@ -5,12 +5,13 @@
     <VERSION value="BCB.05.03"/>
     <PROJECT value="glSkeleton.exe"/>
     <OBJFILES value="glSkeleton.obj UFP.obj Cuadrado.obj Escena.obj Lapiz.obj Lista.obj 
-      PV2D.obj FormPrimerCuadrado.obj"/>
+      PV2D.obj FormPrimerCuadrado.obj TFormZoom.obj TFormEmbaldosado.obj"/>
     <RESFILES value="glSkeleton.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) UFP.dfm FormPrimerCuadrado.dfm"/>
+    <RESDEPEN value="$(RESFILES) UFP.dfm FormPrimerCuadrado.dfm TFormZoom.dfm 
+      TFormEmbaldosado.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="VCL50.lib"/>
