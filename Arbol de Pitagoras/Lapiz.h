@@ -14,7 +14,7 @@
 
 #include <iostream>
 using namespace std;
-const double PI = 3.1415926;
+const double PI = 3.1415926536;
 
 class Lapiz{
 
@@ -29,6 +29,7 @@ public:
 	void turnTo(GLdouble a);
 	void turn(GLdouble a);
 	void forward(GLdouble dist, bool draw);
+        void lookAt(PV2D* p);
 
 
 };

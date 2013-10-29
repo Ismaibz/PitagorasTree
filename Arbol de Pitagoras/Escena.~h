@@ -17,7 +17,8 @@ class Escena{
 
 		Escena (Cuadrado* primero);
 		~Escena();
-                void dibuja(Lapiz* lapiz, int lado);
+                void dibuja(Lapiz* lapiz);
+                void expande(Lapiz* lapiz, float lado);
 
 
 

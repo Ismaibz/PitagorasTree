@@ -38,6 +38,7 @@ object GLForm2D: TGLForm2D
       end
       object SiguienteGeneracion: TMenuItem
         Caption = 'Siguiente Generacion'
+        OnClick = SiguienteGeneracionClick
       end
     end
     object Zoom: TMenuItem

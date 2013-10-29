@@ -110,8 +110,8 @@ void __fastcall TGLForm2D::FormResize(TObject *Sender)
 void __fastcall TGLForm2D::GLScene()
 {
         glClear(GL_COLOR_BUFFER_BIT);
-        if(baldosas) embaldosar(nCol);
-        else drawScene();
+        if(baldosas) {embaldosar(nCol);}
+        else {drawScene();};
         glFlush();
         SwapBuffers(hdc);
 }
@@ -128,6 +128,10 @@ void __fastcall TGLForm2D::FormDestroy(TObject *Sender)
     wglMakeCurrent(NULL, NULL);
     wglDeleteContext(hrc);
     // eliminar objetos creados
+    delete lapiz;
+    lapiz = NULL;
+    delete escena;
+    escena = NULL;
 }
 //---------------------------------------------------------------------------
 
@@ -170,6 +174,10 @@ void __fastcall TGLForm2D::FormClick(TObject *Sender)
                 PV2D *p4 = new PV2D(xAbs - (lado / 2.0), yAbs + (lado / 2.0));
                 Cuadrado* primero = new Cuadrado(p1,p2,p3,p4);
                 escena = new Escena(primero);
+                delete p1;
+                delete p2;
+                delete p3;
+                delete p4;
                 drawScene();
           }
 }
@@ -231,7 +239,7 @@ void TGLForm2D::embaldosar(int nCol)
 
 void TGLForm2D::drawScene()
 {
-        if (escena != NULL) escena->dibuja(lapiz,lado);
+        if (escena != NULL) escena->dibuja(lapiz);
         glFlush();
         SwapBuffers(hdc);
 }
@@ -262,6 +270,16 @@ void __fastcall TGLForm2D::DesembaldosarClick(TObject *Sender)
 {
         baldosas = false;
         desEmbaldosar();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TGLForm2D::SiguienteGeneracionClick(TObject *Sender)
+{
+        if(escena->lista!=NULL){
+                lado = (sqrt(2)/2)*lado;
+                escena->expande(lapiz,lado);
+                Repaint();
+        }
 }
 //---------------------------------------------------------------------------
 

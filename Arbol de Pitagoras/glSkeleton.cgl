@@ -1,13 +1,87 @@
-Error 00121. 0x300010 (Thread 0x079C):
-Resource leak: The object (0x8F6E2C) was never deleted
-
-The object (0x008F6E2C) [size: 8 bytes] was created with new
-Call Tree:
-   0x004045D1(=glSkeleton.exe:0x01:0035D1) C:\Users\Alvaro\Desktop\Arbol de Pitagoras\Lista.h#93
-   0x00404413(=glSkeleton.exe:0x01:003413) C:\Users\Alvaro\Desktop\Arbol de Pitagoras\Escena.cpp#15
-   0x00402AEC(=glSkeleton.exe:0x01:001AEC) C:\Users\Alvaro\Desktop\Arbol de Pitagoras\UFP.cpp#172
-   0x4006B958(=VCL50.BPL:0x01:06A958)
-   0x40054117(=VCL50.BPL:0x01:053117)
-   0x4006DF7B(=VCL50.BPL:0x01:06CF7B)
-
-------------------------------------------
+Functions called:
+ delete (37 times)
+ SysReallocMem (9 times)
+ SysFreeMem (1083 times)
+ SysGetMem (1083 times)
+ realloc (1 times)
+ memcpy (1 times)
+ delete[] (2 times)
+ free (26 times)
+ new[] (14 times)
+ new (42 times)
+ calloc (5 times)
+ malloc (20 times)
+Resource types used:
+ object array (14 allocs, 13 max)
+ object (42 allocs, 30 max)
+ memory block (1109 allocs, 435 max)
+Modules used:
+ 00400000 10/29/2013 16:30:06 C:\Users\Alvaro\Desktop\Arbol de
+ Pitagoras\glSkeleton.exe
+ 0CD00000 01/31/2000 04:00:00 C:\Program Files\Borland\CBuilder5\Bin\CG32.DLL
+ 32500000 01/31/2000 04:00:00 C:\Program
+ Files\Borland\CBuilder5\Bin\CC3250MT.DLL
+ 40000000 01/24/2000 04:01:00 C:\Windows\system32\VCL50.BPL
+ 41000000 01/31/2000 04:00:00 C:\Program
+ Files\Borland\CBuilder5\Bin\BORLNDMM.DLL
+ 6D870000 07/14/2009 02:15:12 C:\Windows\system32\DDRAW.dll
+ 6D960000 07/14/2009 02:15:24 C:\Windows\system32\GLU32.DLL
+ 6D990000 07/14/2009 02:16:14 C:\Windows\system32\OPENGL32.dll
+ 6DBA0000 07/14/2009 02:14:54 C:\Windows\AppPatch\AcXtrnal.DLL
+ 6DE00000 07/14/2009 02:14:52 C:\Windows\AppPatch\AcGenral.DLL
+ 6E020000 07/14/2009 02:14:52 C:\Windows\AppPatch\AcLayers.dll
+ 6F4C0000 07/14/2009 02:15:10 C:\Windows\system32\DCIMAN32.dll
+ 6F4F0000 07/14/2009 02:15:44 C:\Windows\system32\MSACM32.dll
+ 6F530000 07/14/2009 02:16:14 C:\Windows\system32\oledlg.dll
+ 70C00000 07/14/2009 02:14:10 C:\Windows\system32\winspool.drv
+ 71130000 07/14/2009 02:15:42 C:\Windows\system32\mpr.dll
+ 714A0000 07/14/2009 02:16:16 C:\Windows\system32\sfc_os.DLL
+ 714B0000 07/14/2009 02:10:24 C:\Windows\system32\sfc.dll
+ 71F90000 07/14/2009 02:16:16 C:\Windows\system32\SortServer2003Compat.dll
+ 72460000 07/14/2009 02:16:16 C:\Windows\system32\SHUNIMPL.DLL
+ 72470000 07/14/2009 02:16:22 C:\Windows\system32\wsock32.dll
+ 73F60000 07/14/2009 02:16:20 C:\Windows\system32\WINMM.dll
+ 741B0000 07/14/2009 02:16:14 C:\Windows\system32\samcli.dll
+ 744F0000 07/14/2009 02:15:14 C:\Windows\system32\dwmapi.dll
+ 74820000 07/14/2009 02:16:18 C:\Windows\system32\UxTheme.dll
+ 749A0000 07/14/2009 02:03:52
+ C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.
+7600.16385_none_421189da2b7fabfc\comctl32.DLL
+ 74F10000 07/14/2009 02:16:18 C:\Windows\system32\version.dll
+ 75070000 07/14/2009 02:16:18 C:\Windows\system32\USERENV.dll
+ 758F0000 07/14/2009 02:16:16 C:\Windows\system32\SspiCli.dll
+ 75910000 07/14/2009 02:14:54 C:\Windows\system32\apphelp.dll
+ 75960000 07/14/2009 02:15:08 C:\Windows\system32\CRYPTBASE.dll
+ 75A10000 07/14/2009 02:16:14 C:\Windows\system32\profapi.dll
+ 75A80000 07/14/2009 02:15:44 C:\Windows\system32\MSASN1.dll
+ 75A90000 07/14/2009 02:15:08 C:\Windows\system32\CRYPT32.dll
+ 75BE0000 07/14/2009 02:15:08
+ C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82
+.7600.16385_none_ebf82fc36c758ad5\comctl32.dll
+ 75C70000 07/14/2009 02:15:36 C:\Windows\system32\KERNELBASE.dll
+ 75CC0000 07/14/2009 02:15:12 C:\Windows\system32\DEVOBJ.dll
+ 75CE0000 07/14/2009 02:15:04 C:\Windows\system32\CFGMGR32.dll
+ 75D10000 07/14/2009 02:16:16 C:\Windows\system32\SETUPAPI.dll
+ 75EB0000 07/14/2009 02:14:54 C:\Windows\system32\advapi32.dll
+ 75F50000 07/14/2009 02:15:24 C:\Windows\system32\GDI32.dll
+ 75FA0000 07/14/2009 02:16:14 C:\Windows\system32\ole32.dll
+ 76100000 07/14/2009 02:15:34 C:\Windows\system32\IMM32.DLL
+ 76120000 07/14/2009 02:16:18 C:\Windows\system32\USP10.dll
+ 762C0000 07/14/2009 02:16:14 C:\Windows\system32\oleaut32.dll
+ 76350000 07/14/2009 02:16:14 C:\Windows\SYSTEM32\sechost.dll
+ 76370000 07/14/2009 02:15:52 C:\Windows\system32\msvcrt.dll
+ 76470000 07/14/2009 02:16:18 C:\Windows\system32\user32.dll
+ 76540000 07/14/2009 02:16:16 C:\Windows\system32\SHLWAPI.dll
+ 765A0000 07/14/2009 02:15:44 C:\Windows\system32\MSCTF.dll
+ 76670000 07/14/2009 02:15:36 C:\Windows\system32\kernel32.dll
+ 76750000 07/14/2009 02:16:18 C:\Windows\system32\urlmon.dll
+ 768F0000 07/14/2009 02:15:30 C:\Windows\system32\iertutil.dll
+ 76B80000 07/14/2009 02:16:16 C:\Windows\system32\SHELL32.dll
+ 777D0000 07/14/2009 02:16:22 C:\Windows\system32\WS2_32.dll
+ 77810000 07/14/2009 02:16:14 C:\Windows\system32\RPCRT4.dll
+ 778C0000 07/14/2009 02:17:52 C:\Windows\SYSTEM32\ntdll.dll
+ 77A00000 07/14/2009 02:16:12 C:\Windows\system32\NSI.dll
+ 77A10000 07/14/2009 02:15:38 C:\Windows\system32\LPK.dll
+ 77A60000 07/14/2009 02:16:14 C:\Windows\system32\psapi.dll
+ 77A70000 07/14/2009 02:15:08 C:\Windows\system32\comdlg32.dll
+==========================================

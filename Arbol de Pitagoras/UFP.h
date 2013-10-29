@@ -18,7 +18,6 @@
 #include "Cuadrado.h"
 #include "Escena.h"
 #include "Lapiz.h"
-#include "Math.h"
 
 //---------------------------------------------------------------------------
 class TGLForm2D : public TForm
@@ -44,6 +43,7 @@ __published:	// IDE-managed Components
         void __fastcall ZoomClick(TObject *Sender);
         void __fastcall EmbaldosarClick(TObject *Sender);
         void __fastcall DesembaldosarClick(TObject *Sender);
+        void __fastcall SiguienteGeneracionClick(TObject *Sender);
 
 private:	// User declarations
  HDC hdc;
@@ -69,7 +69,7 @@ private:	// User declarations
 
  public:
    		// User declarations
-   int lado;
+   float lado;
    __fastcall TGLForm2D(TComponent* Owner);
 
 };
