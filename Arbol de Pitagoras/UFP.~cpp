@@ -174,8 +174,13 @@ void __fastcall TGLForm2D::FormClick(TObject *Sender)
                 PV2D *p4 = new PV2D(xAbs - (lado / 2.0), yAbs + (lado / 2.0));
                 Cuadrado* primero = new Cuadrado(p1,p2,p3,p4);
                 escena = new Escena(primero);
+                delete p1;
+                delete p2;
+                delete p3;
+                delete p4;
                 drawScene();
           }
+
 }
 //---------------------------------------------------------------------------
 

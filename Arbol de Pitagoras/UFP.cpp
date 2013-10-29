@@ -180,6 +180,7 @@ void __fastcall TGLForm2D::FormClick(TObject *Sender)
                 delete p4;
                 drawScene();
           }
+
 }
 //---------------------------------------------------------------------------
 

@@ -66,6 +66,7 @@ private:	// User declarations
  void drawScene();
  int nCol;
  void desEmbaldosar();
+ int generacion;
 
  public:
    		// User declarations

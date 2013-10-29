@@ -27,13 +27,20 @@ Escena::~Escena()
 
 void Escena::dibuja(Lapiz* lapiz)
 {
-        lista->Primero();
+        lista->Ultimo();
+        int generacion = 0;
         while (lista->Actual())
         {
+                if ( generacion > 4)
+                        glColor3f(0.0,0.6,0.0);
+                else
+                        glColor3f(0.4,0.2,0.0);
+                generacion++;
                 Lista<Cuadrado*>* listaAux = lista->ValorActual();
                 listaAux->Primero();
                 while (listaAux->Actual())
                 {
+
                         Cuadrado* aux = listaAux->ValorActual();
                         glBegin(GL_QUADS);
                                 glVertex2d(aux->v1->x,aux->v1->y);
@@ -41,9 +48,10 @@ void Escena::dibuja(Lapiz* lapiz)
                                 glVertex2d(aux->v3->x,aux->v3->y);
                                 glVertex2d(aux->v4->x,aux->v4->y);
                         glEnd();
+
                         listaAux->Siguiente();
                 }
-                lista->Siguiente();
+                lista->Anterior();
         }
 };
 
@@ -71,7 +79,7 @@ void Escena::expande(Lapiz* lapiz, float lado)
                         lapiz->forward(lado,false);
                         PV2D* p1 = new PV2D(*lapiz->pos);
                         Cuadrado* nuevo1 = new Cuadrado(p1,p2,p3,p4);
-                        listaNueva->InsertarFinal(nuevo1);
+                        listaNueva->InsertarPrincipio(nuevo1);
 
                         //Cuadrado de la izquierda (a partir del v4)
                         lapiz->moveTo(aux->v3,false);
@@ -88,7 +96,7 @@ void Escena::expande(Lapiz* lapiz, float lado)
                         lapiz->forward(lado,false);
                         PV2D* p42 = new PV2D(*lapiz->pos);
                         Cuadrado* nuevo2 = new Cuadrado(p12,p22,p32,p42);
-                        listaNueva->InsertarFinal(nuevo2);
+                        listaNueva->InsertarPrincipio(nuevo2);
                         listaAux->Siguiente();
                 }
                 lista->InsertarPrincipio(listaNueva);

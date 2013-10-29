@@ -4,7 +4,7 @@
 
 #include <iostream>
 using namespace std;
-template<class TIPO> class Lista;
+template<class TIPO> class lista;
 
 template<class TIPO>
 class nodo {
@@ -17,14 +17,14 @@ class nodo {
     nodo<TIPO> *siguiente;
     nodo<TIPO> *anterior;
 
-   friend class Lista<TIPO>;
+   friend class lista<TIPO>;
 };
 
 template<class TIPO>
-class Lista {
+class lista {
    public:
-    Lista() : primero(NULL), ultimo(NULL), actual(NULL), numElem(0) {}
-    ~Lista();
+    lista() : primero(NULL), ultimo(NULL), actual(NULL), numElem(0) {}
+    ~lista();
 
     void InsertarFinal(const TIPO v);
     void InsertarPrincipio(const TIPO v);
@@ -35,18 +35,18 @@ class Lista {
     void Anterior() { if(actual) actual = actual->anterior; }
     void Primero() { actual = primero; }
     void Ultimo(){ actual = ultimo; }
-    bool Actual() { return actual != NULL; }
+    bool Actual() { return primero != NULL; }
     TIPO ValorActual() { return primero->dato; }
 	int numElem;
 	
    private:
     nodo<TIPO> *primero;
 	nodo<TIPO> *ultimo;
-	nodo<TIPO> *actual;
+	Nodo<DATO> *actual;
 };
 
 template<class TIPO>
-Lista<TIPO>::~Lista() {
+lista<TIPO>::~lista() {
    nodo<TIPO> *aux;
 
    Primero();
@@ -58,39 +58,33 @@ Lista<TIPO>::~Lista() {
 }
 
 template<class TIPO>
-void Lista<TIPO>::InsertarFinal(TIPO v) {
-
-   // Si la Lista está vacía, insertar al principio:
-   if(ListaVacia()) InsertarPrincipio(v);
+void lista<TIPO>::InsertarFinal(TIPO v) {
+   // Si la lista está vacía, insertar al principio:
+   if(Vacia()) InsertarPrincipio(v);
    else { // Si no lo está:
-     nodo<TIPO> *pnodo = new nodo<TIPO>(v,NULL,ultimo);
-     ultimo->siguiente  = pnodo;
-     ultimo = pnodo;
-
+     ultimo->siguiente = new Nodo<TIPO>(v, NULL, ultimo);
+	 ultimo = ultimo->siguiente;
    }
    numElem++;
 }
 
 
 template<class TIPO>
-void Lista<TIPO>::InsertarPrincipio(TIPO v) {
-	nodo<TIPO> *pnodo = new nodo<TIPO>(v,primero,NULL);
-   if(ListaVacia())
-   {
-        primero = pnodo;
-        ultimo = pnodo;
-   }
-   else
-   {
-   	primero->anterior = pnodo;
-   	primero = pnodo;
-   }
+void lista<TIPO>::InsertarPrincipio(TIPO v) {
+	nodo<TIPO> *pnodo = new Nodo<TIPO>(v,primero,NULL);;
+   if(Vacia())
+		primero = pnodo;
+	else
+	{
+		primero->anterior = pnodo;
+		primero = pnodo;
+	}
 		
    numElem++;
 }
 
 template<class TIPO>
-void Lista<TIPO>::Borrar(TIPO v) {
+void lista<TIPO>::Borrar(TIPO v) {
    nodo<TIPO> *pnodo;
 
    pnodo = primero;
@@ -107,7 +101,7 @@ void Lista<TIPO>::Borrar(TIPO v) {
 }
 
 template<class TIPO>
-void Lista<TIPO>::Mostrar(int orden) {
+void lista<TIPO>::Mostrar(int orden) {
    nodo<TIPO> *pnodo;
    if(orden == ASCENDENTE) {
       Primero();
@@ -128,4 +122,13 @@ void Lista<TIPO>::Mostrar(int orden) {
    cout << endl;
 }
 
+template<class TIPO>
+void lista<TIPO>::Siguiente() {
+   if(primero) primero = primero->siguiente;
+}
+
+template<class TIPO>
+void lista<TIPO>::Anterior() {
+   if(primero) primero = primero->anterior;
+}
 

@@ -1,8 +1,8 @@
 object GLForm2D: TGLForm2D
   Left = 196
-  Top = 38
+  Top = 122
   Width = 833
-  Height = 634
+  Height = 550
   Caption = 'Formulario Principal'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
