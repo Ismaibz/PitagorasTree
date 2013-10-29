@@ -1,11 +1,11 @@
-Error 00107. 0x300010 (Thread 0x0668):
-Resource leak: The object (0x480BE70) was never deleted
+Error 00106. 0x300010 (Thread 0x085C):
+Resource leak: The object (0x1D97E70) was never deleted
 
-The object (0x0480BE70) [size: 16 bytes] was created with new
+The object (0x01D97E70) [size: 16 bytes] was created with new
 Call Tree:
-   0x004043B3(=glSkeleton.exe:0x01:0033B3) Z:\PitagorasTree\Arbol de Pitagoras\Cuadrado.cpp#13
-   0x00405A31(=glSkeleton.exe:0x01:004A31) Z:\PitagorasTree\Arbol de Pitagoras\Escena.cpp#98
-   0x004037A3(=glSkeleton.exe:0x01:0027A3) Z:\PitagorasTree\Arbol de Pitagoras\UFP.cpp#286
+   0x0040435D(=glSkeleton.exe:0x01:00335D) Z:\PitagorasTree\Arbol de Pitagoras\Cuadrado.cpp#15
+   0x00405974(=glSkeleton.exe:0x01:004974) Z:\PitagorasTree\Arbol de Pitagoras\Escena.cpp#105
+   0x004036CB(=glSkeleton.exe:0x01:0026CB) Z:\PitagorasTree\Arbol de Pitagoras\UFP.cpp#279
    0x4006203A(=VCL50.BPL:0x01:06103A)
    0x40054117(=VCL50.BPL:0x01:053117)
    0x4006DF7B(=VCL50.BPL:0x01:06CF7B)

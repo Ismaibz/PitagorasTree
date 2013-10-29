@@ -24,7 +24,7 @@ void __fastcall TGLForm2D::FormCreate(TObject *Sender)
     if(wglMakeCurrent(hdc, hrc) == false)
     	ShowMessage("Could not MakeCurrent");
     //Cor de fondo de la ventana
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
     //inicialización del volumen de vista
     xRight=200.0; xLeft=-xRight;
@@ -178,7 +178,7 @@ void __fastcall TGLForm2D::FormClick(TObject *Sender)
                 delete p2;
                 delete p3;
                 delete p4;
-                drawScene();
+                GLScene();
           }
 
 }
@@ -241,8 +241,6 @@ void TGLForm2D::embaldosar(int nCol)
 void TGLForm2D::drawScene()
 {
         if (escena != NULL) escena->dibuja(lapiz);
-        glFlush();
-        SwapBuffers(hdc);
 }
 //---------------------------------------------------------------------------
 

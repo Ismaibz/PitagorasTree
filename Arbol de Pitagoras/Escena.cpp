@@ -31,10 +31,16 @@ void Escena::dibuja(Lapiz* lapiz)
         int generacion = 0;
         while (lista->Actual())
         {
-                if ( generacion > 4)
-                        glColor3f(0.0,0.6,0.0);
+                if ( generacion > 8)
+                         glColor3f(0.0,0.6,0.0);
                 else
-                        glColor3f(0.4,0.2,0.0);
+                {
+                        if (generacion > 4)
+
+                              glColor3f(0.0,0.2,0.0);
+                        else
+                            glColor3f(0.4,0.2,0.0);   
+                }
                 generacion++;
                 Lista<Cuadrado*>* listaAux = lista->ValorActual();
                 listaAux->Primero();
